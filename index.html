@@ -2,25 +2,29 @@
 	<body>
 		<div id="app"></div>
 
-		// load react
+		<!-- load react -->
 		<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
 		<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-		<script type="text/javascript">
+		<script type="text/babel">
 			// Select the div element with 'app' id
 			const app = document.getElementById('app')
 
-			// create a new H1 element
-			const header = document.createElement('h1')
+			function Header({ title }) {
+				console.log(title)
+				return <h1>{title}</h1>
+			}
 
-			// create a new text node for the H1 element
-			const headerContent = document.createTextNode('Develop. Preview. Ship. 🚀')
+			function HomePage() {
+				return (
+					<div>
+						<Header title="React 💙" />
+					</div>
+				)
+			}
 
-			// append the text to the H1 element
-			header.appendChild(headerContent)
-
-			// append the H1 element inside the div
-			app.appendChild(header)
+			ReactDOM.render(<HomePage />, app)
 		</script>
 	</body>
 </html>
